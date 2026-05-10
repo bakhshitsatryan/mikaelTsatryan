@@ -1,0 +1,138 @@
+/* ============================================================
+   BIOGRAPHY — long-form reading view
+   ============================================================ */
+
+body { padding-top: var(--nav-h); }
+
+.bio {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 32px 22px 80px;
+}
+
+.bio__hero {
+  text-align: center;
+  padding: 24px 0 36px;
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 36px;
+}
+
+.bio__name {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 7vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  color: var(--ink);
+}
+
+.bio__years {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--ink-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bio__years::before,
+.bio__years::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: var(--line);
+}
+
+.bio__chapter {
+  margin: 0 0 44px;
+}
+
+.bio__chapter-num {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.bio__chapter-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 5vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+
+.bio__chapter-title::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.bio__p {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin: 0 0 14px;
+  text-align: left;
+}
+
+.bio__quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 18px 0;
+  padding: 4px 0 4px 18px;
+  border-left: 3px solid var(--accent);
+}
+
+.bio__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.bio__list li { padding: 4px 0 4px 20px; position: relative; }
+.bio__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.bio__closing {
+  margin-top: 56px;
+  padding: 36px 0 0;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+}
+
+.bio__closing p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 8px 0;
+}

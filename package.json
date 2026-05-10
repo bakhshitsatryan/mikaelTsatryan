@@ -1,0 +1,16 @@
+{
+  "name": "mikael-tsatryan-memorial",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Memorial site for Mikayel Tsatryan (1958–2025)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "scan-photos": "node scripts/build-photos-json.mjs"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

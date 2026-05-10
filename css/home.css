@@ -1,0 +1,509 @@
+/* ============================================================
+   HOME — full-viewport snap-scroll story
+   ============================================================ */
+
+html, body { height: 100%; overflow: hidden; }
+
+.story {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+.story::-webkit-scrollbar { width: 0; }
+.story { scrollbar-width: none; }
+
+/* ---------- one section = one phone screen ---------- */
+
+.scene {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  position: relative;
+  overflow: hidden;
+  padding-top: var(--nav-h);
+}
+
+/* photo area — fills upper portion */
+.scene__media {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-soft);
+}
+
+.scene__media-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.7s var(--ease), transform 8s var(--ease);
+  will-change: opacity, transform;
+}
+
+.scene__media-img.is-current {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scene.is-active .scene__media-img.is-current {
+  transform: scale(1);
+}
+
+/* carousel controls (only when section has more than 1 photo) */
+.scene__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(20, 18, 14, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fbf8f1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+
+.scene__nav:hover,
+.scene__nav:active { background: rgba(20, 18, 14, 0.62); }
+
+.scene__nav svg { width: 18px; height: 18px; }
+
+.scene__nav--prev { left: 10px; }
+.scene__nav--next { right: 10px; }
+
+.scene__dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 6px;
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 99px;
+  background: rgba(20, 18, 14, 0.32);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.scene__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(251, 248, 241, 0.45);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+
+.scene__dot.is-current {
+  background: #fbf8f1;
+  transform: scale(1.2);
+}
+
+/* small image counter for accessibility (and mobile clarity) */
+.scene__counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: rgba(251, 248, 241, 0.85);
+  background: rgba(20, 18, 14, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 4px 9px;
+  border-radius: 99px;
+}
+
+/* very light dim at top so the section number stays legible */
+.scene__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(34,31,26,0.28) 0%,
+    rgba(34,31,26,0) 22%);
+  pointer-events: none;
+}
+
+.scene__num {
+  position: absolute;
+  top: calc(var(--nav-h) + 14px);
+  left: 18px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(251, 248, 241, 0.85);
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+  z-index: 2;
+}
+
+/* ---------- text area below photo ---------- */
+
+.scene__body {
+  padding: 16px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+  background: var(--bg);
+  position: relative;
+  /* no overflow scroll — would steal swipes from snap container */
+  overflow: hidden;
+  min-height: 0;
+}
+
+.scene__title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 6.5vw, 30px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s var(--ease) 0.15s, transform 0.9s var(--ease) 0.15s;
+}
+
+.scene__title::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+  margin-top: 10px;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--ease) 0.55s;
+}
+
+.scene__text {
+  font-family: var(--font-serif);
+  font-size: clamp(14.5px, 3.9vw, 16.5px);
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s var(--ease) 0.35s, transform 0.9s var(--ease) 0.35s;
+}
+
+.scene__text + .scene__text { margin-top: 6px; }
+
+.scene__quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(16px, 4.6vw, 20px);
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 6px 0 0;
+  padding: 0 0 0 14px;
+  border-left: 2px solid var(--accent);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s var(--ease) 0.4s, transform 0.9s var(--ease) 0.4s;
+}
+
+.scene__quote--secondary {
+  font-size: clamp(13.5px, 3.7vw, 15.5px);
+  color: var(--ink-muted);
+  border-left-color: var(--line);
+  margin-top: 10px;
+}
+
+.scene__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(14.5px, 3.9vw, 16px);
+  color: var(--ink-soft);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.9s var(--ease) 0.35s, transform 0.9s var(--ease) 0.35s;
+}
+
+.scene__list li { padding: 4px 0 4px 18px; position: relative; }
+.scene__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* enter animations triggered when .is-active */
+.scene.is-active .scene__title,
+.scene.is-active .scene__text,
+.scene.is-active .scene__quote,
+.scene.is-active .scene__list {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scene.is-active .scene__title::after { transform: scaleX(1); }
+
+/* photo proportions — photo gets a calm chunk, text fills the rest.
+   --media-h is set per-scene by JS based on text length, with a CSS fallback. */
+.scene--with-media { grid-template-rows: var(--media-h, 40vh) 1fr; }
+.scene--text-only  { grid-template-rows: 1fr; }
+
+/* smooth transition when JS recalculates height (e.g. on language change) */
+@media (max-width: 899px) {
+  .scene--with-media { transition: grid-template-rows 0.45s var(--ease); }
+}
+
+/* on shorter screens (e.g. iPhone SE 667px), give text more breathing room */
+@media (max-height: 720px) {
+  .scene--with-media { grid-template-rows: var(--media-h, 32vh) 1fr; }
+  .scene__body  { padding: 10px 20px 16px; gap: 5px; }
+  .scene__title { font-size: clamp(20px, 6vw, 26px); }
+  .scene__title::after { margin-top: 6px; }
+  .scene__text  { font-size: 13.5px; line-height: 1.5; }
+  .scene__quote { font-size: 15px; line-height: 1.4; }
+}
+
+.scene--text-only .scene__body {
+  padding: 28px 26px;
+  justify-content: center;
+  text-align: left;
+  height: 100%;
+}
+
+.scene--text-only .scene__title {
+  font-size: clamp(26px, 8vw, 38px);
+}
+
+/* ============================================================
+   SCENE 1 — Opening (hero)
+   ============================================================ */
+
+.scene--opening { grid-template-rows: 1fr; padding-top: 0; }
+
+.scene--opening .scene__media::after {
+  background: linear-gradient(180deg,
+    rgba(34,31,26,0.55) 0%,
+    rgba(34,31,26,0.20) 35%,
+    rgba(34,31,26,0.45) 70%,
+    rgba(34,31,26,0.92) 100%);
+}
+
+.scene--opening .scene__body {
+  position: absolute;
+  inset: auto 0 0 0;
+  background: transparent;
+  padding: 0 26px 56px;
+  color: #fbf8f1;
+  z-index: 2;
+}
+
+.scene--opening .scene__name {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 8.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: #fbf8f1;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroIn 1.1s var(--ease) 0.3s forwards;
+}
+
+.scene--opening .scene__years {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  font-weight: 500;
+  color: rgba(251, 248, 241, 0.78);
+  margin: 14px 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroIn 1.1s var(--ease) 0.6s forwards;
+}
+
+.scene--opening .scene__years::before,
+.scene--opening .scene__years::after {
+  content: '';
+  width: 18px;
+  height: 1px;
+  background: rgba(251, 248, 241, 0.5);
+}
+
+.scene--opening .scene__lede {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(15px, 4.2vw, 18px);
+  line-height: 1.5;
+  color: rgba(251, 248, 241, 0.92);
+  max-width: 30ch;
+  margin: 0 0 28px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroIn 1.1s var(--ease) 0.9s forwards;
+}
+
+.scene__hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(251, 248, 241, 0.7);
+  opacity: 0;
+  animation: heroIn 1.1s var(--ease) 1.2s forwards, hintBob 2.2s ease-in-out 2s infinite;
+}
+
+.scene__hint svg { width: 14px; height: 14px; }
+
+@keyframes heroIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hintBob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(4px); }
+}
+
+/* ============================================================
+   SCENE — Last words (special)
+   ============================================================ */
+
+.scene--last-words .scene__quote {
+  border-left: 0;
+  padding: 0;
+  text-align: center;
+  font-size: clamp(18px, 5.2vw, 24px);
+  position: relative;
+}
+
+.scene--last-words .scene__body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 32px 28px;
+}
+
+.scene--last-words .scene__title {
+  text-align: center;
+}
+.scene--last-words .scene__title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   SCENE — Closing
+   ============================================================ */
+
+.scene--closing .scene__body {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.scene--closing .scene__title { text-align: center; }
+.scene--closing .scene__title::after { margin: 10px auto 0; }
+.scene--closing .scene__text { text-align: center; max-width: 32ch; }
+
+/* ============================================================
+   PROGRESS — thin vertical track on right
+   ============================================================ */
+
+.progress {
+  position: fixed;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.progress__dot {
+  width: 4px;
+  height: 12px;
+  border-radius: 2px;
+  background: rgba(34, 31, 26, 0.18);
+  transition: background 0.4s var(--ease), height 0.4s var(--ease);
+  pointer-events: auto;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+}
+
+.progress__dot.is-active {
+  background: var(--accent);
+  height: 22px;
+}
+
+/* hide progress on scenes where photo is full-bleed */
+.progress.on-dark .progress__dot { background: rgba(251, 248, 241, 0.32); }
+.progress.on-dark .progress__dot.is-active { background: #fbf8f1; }
+
+/* ---------- desktop tweaks ---------- */
+@media (min-width: 900px) {
+  .scene--with-media {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+  .scene__media { grid-row: 1; grid-column: 1; }
+  .scene__body {
+    grid-row: 1;
+    grid-column: 2;
+    padding: 96px 64px;
+    justify-content: center;
+    max-width: 600px;
+  }
+  .scene__num { color: rgba(251, 248, 241, 0.85); }
+  .scene__media::after {
+    background: linear-gradient(180deg,
+      rgba(34,31,26,0.20) 0%,
+      rgba(34,31,26,0) 50%,
+      rgba(34,31,26,0.30) 100%);
+  }
+  .scene--opening { grid-template-columns: 1fr; }
+  .scene--opening .scene__media { grid-column: 1 / -1; }
+  .scene--opening .scene__body {
+    grid-row: auto;
+    grid-column: auto;
+    max-width: none;
+    padding: 0 64px 80px;
+  }
+}

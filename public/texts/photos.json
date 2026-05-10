@@ -1,0 +1,167 @@
+{
+  "hero": "photos/forMainPage/1mainPhoto.webp",
+  "sections": {
+    "opening": [
+      "photos/forMainPage/1mainPhoto.webp"
+    ],
+    "origins": [
+      "photos/forMainPage/2firstPhotos/Need to improve-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/2firstPhotos/refergergreg.webp"
+    ],
+    "student": [
+      "photos/forMainPage/3student/Copy of 02B13833-A057-4D17-9286-860740BB0B38_4_5005_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/3student/Copy of 44B2C374-0C3F-49C2-A398-F0E08BD3A249_4_5005_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/3student/Copy of 9B432AE3-359B-4FAC-81D3-E10701F30B34_4_5005_c.webp"
+    ],
+    "hungary": [
+      "photos/forMainPage/4hungary/Copy of FF097CEA-EF1B-467F-A41A-747E18DD17EC_4_5005_c.webp",
+      "photos/forMainPage/4hungary/Copy of IMG_20210116_203552.webp"
+    ],
+    "engineer": [
+      "photos/forMainPage/5engineer/Copy of CF6C8E3E-034E-42B3-917C-B89BD6BD09F2_4_5005_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/5engineer/Copy of EA929F61-955D-4E6B-8302-312A801C3DE5_4_5005_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/5engineer/Copy of IMG_20210116_203527.webp",
+      "photos/forMainPage/5engineer/Помошь людям.webp"
+    ],
+    "military-educator": [
+      "photos/forMainPage/6military/41B44776-2489-465C-9705-E17592945751_4_5005_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/6military/507463263_9318406834926983_4937034738263699766_n-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/6military/Copy of FB7F6A5E-1158-4E71-89B5-9482331E459F_1_105_c.webp",
+      "photos/forMainPage/6military/D609E398-01EC-4C26-BC49-8E19B870CCA4_4_5005_c-Picsart-AiImageEnhancer.webp"
+    ],
+    "garden": [
+      "photos/forMainPage/7garden/34032591_407599116388584_9013472209095622656_n.webp",
+      "photos/forMainPage/7garden/37206069_442993676182461_1274713162075078656_n.webp",
+      "photos/forMainPage/7garden/480703202_9125308557566712_3971635290168196941_n.webp",
+      "photos/forMainPage/7garden/С друзями в огороде.webp"
+    ],
+    "bananas": [
+      "photos/forMainPage/8bananas/187275458_1143975416084280_1215201767189850920_n.webp",
+      "photos/forMainPage/8bananas/487218341_2076037119544767_827159625665479067_n.webp",
+      "photos/forMainPage/8bananas/IMG_20210707_134240.webp"
+    ],
+    "words-poetry-vodka": [
+      "photos/forMainPage/9poet/Need to improve-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/9poet/Тост.webp"
+    ],
+    "teacher": [
+      "photos/forMainPage/10teacher/Copy of FB_IMG_1613922699643.webp",
+      "photos/forMainPage/10teacher/egergerger.webp",
+      "photos/forMainPage/10teacher/wefwfwef.webp"
+    ],
+    "family": [
+      "photos/forMainPage/11family/Copy of DSC01467.webp",
+      "photos/forMainPage/11family/Copy of FEC95EC0-5E34-4526-A121-C8AE60AD7AB1_1_105_c-Picsart-AiImageEnhancer.webp",
+      "photos/forMainPage/11family/Copy of received_591682024634631.webp",
+      "photos/forMainPage/11family/IMG-00f8a5b9dab3aa87cddab66f55905531-V.webp",
+      "photos/forMainPage/11family/WhatsApp Image 2026-04-13 at 12.10.29.webp",
+      "photos/forMainPage/11family/С внуком 2.webp",
+      "photos/forMainPage/11family/С дочкой.webp"
+    ],
+    "last-fight": [
+      "photos/forMainPage/12lastFight/490133691_2086539661827846_4168874823964260144_n.webp",
+      "photos/forMainPage/12lastFight/IMG_1602.webp",
+      "photos/forMainPage/12lastFight/WhatsApp Image 2026-04-13 at 11.57.03.webp",
+      "photos/forMainPage/12lastFight/WhatsApp Image 2026-04-13 at 12.02.38 (1).webp"
+    ],
+    "outsmarted-death": [],
+    "last-words": [],
+    "legacy": [
+      "photos/forMainPage/13remain/85593ACE-35AE-4A1C-8EB2-781DCA134D6D_4_5005_c.webp"
+    ],
+    "closing": []
+  },
+  "galleries": [
+    {
+      "id": "studentYears",
+      "title": {
+        "ru": "Студенческие годы",
+        "am": "Ուսանողական տարիներ"
+      },
+      "folder": "photos/studentYears",
+      "items": [
+        "photos/studentYears/295FA4B6-17C8-45AF-ACEF-83F24DBB06B7_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/498A1D61-2B3A-461E-83CA-F53AF5FBCF0C_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of 598FBC67-FA39-4C1E-AA60-09DF30AE2BCF_4_5005_c.webp",
+        "photos/studentYears/Copy of 5B8F8F9C-3C62-446A-9885-33BB6BA7902D_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of 87D99D4A-46AF-44E4-B0C6-91D1B38DEB86_4_5005_c.webp",
+        "photos/studentYears/Copy of 98886DF4-E04D-47F0-8B5C-64DB94B581D0_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of A3F02050-474D-4B5A-B7B4-D153B8B6391C_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of A7695F2C-00E3-4185-906F-74752DBF1ADC_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of AA9843D9-8623-4DCD-8AA3-BDC2244BFFC6_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/Copy of DD8F5F89-FD39-4693-9570-CA0D193DFE59_4_5005_c.webp",
+        "photos/studentYears/Copy of EF4A6B7F-35E9-45CC-8523-001088A3872A_4_5005_c.webp",
+        "photos/studentYears/Copy of F7E97FB3-1E23-4EAA-9330-008691D43855_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/studentYears/EC4D11BF-8B1E-4ED5-9838-F7BCF409656B_4_5005_c-Picsart-AiImageEnhancer.webp"
+      ]
+    },
+    {
+      "id": "work",
+      "title": {
+        "ru": "Работа",
+        "am": "Աշխատանք"
+      },
+      "folder": "photos/work",
+      "items": [
+        "photos/work/Copy of 1139FFC4-2810-465E-9C27-4A197A79245D_1_105_c.webp",
+        "photos/work/Copy of 404616185_929567435180227_2955898266988575597_n-Picsart-AiImageEnhancer.webp",
+        "photos/work/Copy of ACE76301-8EA3-4AC3-93B0-A6ECD6A7FDC0_4_5005_c-Picsart-AiImageEnhancer.webp",
+        "photos/work/Copy of F536E7C3-2E49-4FDE-BF85-76269DF8612F_1_105_c-Picsart-AiImageEnhancer.webp",
+        "photos/work/Copy of IMG_20200610_164716.webp",
+        "photos/work/DSC00259.webp"
+      ]
+    },
+    {
+      "id": "adultYears",
+      "title": {
+        "ru": "Зрелые годы",
+        "am": "Հասուն տարիներ"
+      },
+      "folder": "photos/adultYears",
+      "items": [
+        "photos/adultYears/Copy of DSC01504.webp",
+        "photos/adultYears/Copy of IMG-3a310704f82e24cfea279b1ae98abee7-V.webp",
+        "photos/adultYears/IMG_20200714_162958.webp",
+        "photos/adultYears/IMG_20210314_142154.webp",
+        "photos/adultYears/IMG-467e3e29f514ebb3342de0b466aaef90-V.webp",
+        "photos/adultYears/SDC12103.webp",
+        "photos/adultYears/upscalemedia-transformed3.webp",
+        "photos/adultYears/Путешествия.webp",
+        "photos/adultYears/С внуком в огороде.webp",
+        "photos/adultYears/С внуком.webp",
+        "photos/adultYears/С дочкой.webp",
+        "photos/adultYears/С маленьким сыном.webp",
+        "photos/adultYears/С маленьким сыном2.webp",
+        "photos/adultYears/С сыном в армии.webp",
+        "photos/adultYears/Самовар.webp",
+        "photos/adultYears/Спит харизматично.webp",
+        "photos/adultYears/Учитель с пастором.webp"
+      ]
+    },
+    {
+      "id": "rewards",
+      "title": {
+        "ru": "Награды",
+        "am": "Մրցանակներ"
+      },
+      "folder": "photos/rewards",
+      "items": [
+        "photos/rewards/103071027_905601043255053_2992611244358363855_n.webp",
+        "photos/rewards/120895149_992816447866845_2035209914124692115_n.webp",
+        "photos/rewards/196900136_1154258211722667_9017451524447060213_n.webp",
+        "photos/rewards/34984385_413003799181449_1008488201188278272_n.webp",
+        "photos/rewards/48379017_545957139219447_540868259537223680_n.webp",
+        "photos/rewards/488894084_2084660452015767_644068362037651157_n.webp",
+        "photos/rewards/489526249_2086548041827008_826975028346470847_n.webp",
+        "photos/rewards/69698837_693539737794519_3383396397645561856_n.webp",
+        "photos/rewards/Copy of 3B30E17F-8465-48E1-BA93-8577CCD13884_4_5005_c.webp",
+        "photos/rewards/Copy of B0C671B9-D502-4688-8AE4-E4606582B002_4_5005_c.webp"
+      ]
+    }
+  ],
+  "videos": [
+    "photos/videos/output2.mp4",
+    "photos/videos/Web_Photo_Editor.mp4",
+    "photos/videos/Web_Photo_Editor2.mp4"
+  ]
+}
