@@ -8,7 +8,8 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview --host",
-    "scan-photos": "node scripts/build-photos-json.mjs"
+    "scan-photos": "node scripts/build-photos-json.mjs",
+    "rename-photos": "node scripts/rename-to-ascii.mjs && node scripts/build-photos-json.mjs"
   },
   "devDependencies": {
     "vite": "^5.4.10"
